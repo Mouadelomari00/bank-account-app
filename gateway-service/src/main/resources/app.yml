@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id : r1
+          uri : http://localhost:8081/
+          predicates:
+            - Path=/customers/**
+        - id : r2
+          uri : http://localhost:8082/
+          predicates:
+            - Path=/accounts/**
+  application:
+    name: gateway-service
+server:
+  port: 8888
+# c'est une configuration statique, c'est à dire en suppose qu'on conné on se trouve chaque
+#micro-service à travers uri.
+
+# Dans la pratique on ne sait pas on trouve chaque micro-service.
+
+
